@@ -1,10 +1,11 @@
 import Form from "../ui/Form";
 import Input from "../ui/Input";
 import Button from "../ui/Button"
+import {create} from "@/app/actions/todoAction"
 
 const AddTodo = () => {
     return (
-        <Form className="w-1/2 n-auto">
+        <Form action={create} className="w-1/2 n-auto">
             <div className="flex">
                 <Input 
                 name="=input"

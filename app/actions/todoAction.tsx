@@ -1,9 +1,13 @@
-import Form From "../ui/Form";
-import Input from "../ui/Input";
-import Button from "../ui/Button";
+"use server"
 
-const AddTodo = () => {
-    return <div>AddTodo</div>
-};
+import {revalidatePath} from "next/cache"
+import {prisma} from "@/utils/prisma"
 
-export default AddTodo;
+export async function create(formData: FormData){
+    const input = formData.get("input") as string
+    await prisma.todo.creae({
+        data: {
+            title: input,
+        }
+    })
+}
